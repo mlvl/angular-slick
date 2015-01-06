@@ -124,12 +124,15 @@ angular.module('slick', [])
       if scope.initOnload
         isInitialized = false
         scope.$watch("data", (newVal, oldVal) ->
-          if newVal?
-            if isInitialized
-              destroySlick()
- 
-            initializeSlick()
-            isInitialized = true
+          return if !newVal?
+
+          if isInitialized
+            $(element).slickRemove();
+            $(element).removeClass('slick-initialized slick-slider');
+            $(element).find('.slick-list').remove();
+
+          initializeSlick()
+          isInitialized = true
         )
       else
         initializeSlick()
