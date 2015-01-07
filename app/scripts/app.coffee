@@ -131,8 +131,11 @@ angular.module('slick', [])
             $(element).removeClass('slick-initialized slick-slider');
             $(element).find('.slick-list').remove();
 
-          initializeSlick()
-          isInitialized = true
+          $timeout ->
+            initializeSlick()
+            isInitialized = true
+          , 50
+          
         )
       else
         initializeSlick()

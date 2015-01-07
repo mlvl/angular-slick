@@ -147,8 +147,10 @@ angular.module('slick', []).directive('slick', [
               $(element).removeClass('slick-initialized slick-slider');
               $(element).find('.slick-list').remove();
             }
-            initializeSlick();
-            return isInitialized = true;
+            return $timeout(function () {
+              initializeSlick();
+              return isInitialized = true;
+            }, 50);
           });
         } else {
           return initializeSlick();
