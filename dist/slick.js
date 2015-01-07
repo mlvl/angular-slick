@@ -150,7 +150,7 @@ angular.module('slick', []).directive('slick', [
             return $timeout(function () {
               initializeSlick();
               return isInitialized = true;
-            }, 100);
+            }, 200);
           });
         } else {
           return initializeSlick();

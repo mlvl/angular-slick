@@ -134,7 +134,7 @@ angular.module('slick', [])
           $timeout ->
             initializeSlick()
             isInitialized = true
-          , 100
+          , 200
           
         )
       else
